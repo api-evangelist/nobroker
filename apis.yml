@@ -1,8 +1,19 @@
 aid: nobroker
 name: NoBroker
-description: 'NoBroker is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'NoBroker Technologies Solutions Pvt Ltd is an Indian proptech company,
+  founded in 2013 and headquartered in Bengaluru, that operates a brokerage-free real
+  estate marketplace connecting property owners directly with tenants and buyers across
+  Indian metros. Beyond listings for flats, houses, villas, plots, PGs and commercial
+  space, NoBroker sells adjacent home services — rental and lease agreement drafting,
+  legal assistance, packers and movers, painting and cleaning, home loans and rent
+  payments — and operates NoBrokerHood, a gated-community and housing-society management
+  / ERP product covering visitor management, billing, accounting and complaints. NoBroker
+  became India''s first proptech unicorn in 2021. The company ships software only as
+  an end-user web and mobile product: as of this profile it publishes no public developer
+  program, no API reference and no machine-readable specification, and its application
+  endpoints under /api/v1..v5 are explicitly disallowed in robots.txt.'
 url: https://raw.githubusercontent.com/api-evangelist/nobroker/refs/heads/main/apis.yml
+image: https://assets.nobroker.in/static/img/logo.png
 x-type: company
 x-source: harvest:secondary-market
 x-tier: stub
@@ -12,6 +23,13 @@ created: '2026-08-04'
 modified: '2026-08-04'
 tags:
 - Company
+- Real Estate
+- PropTech
+- Property Rental
+- Marketplace
+- Home Services
+- Society Management
+- India
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +37,49 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/nobroker-domain-security.yml
+- type: Packages
+  url: packages/nobroker-packages.yml
+- type: LLMsTxt
+  url: llms/nobroker-llms.txt
 - type: Website
+  url: https://www.nobroker.in
+- type: Blog
+  url: https://www.nobroker.in/blog/
+- type: Support
+  url: https://www.nobroker.in/support
+- type: Pricing
+  url: https://www.nobroker.in/nb/plans
+- type: TermsOfService
+  url: https://www.nobroker.in/terms-and-condition
+- type: PrivacyPolicy
+  url: https://www.nobroker.in/privacy
+- type: SecondaryMarketListing
   url: https://www.hiive.com/securities/nobroker-stock
+x-enrichment:
+  date: '2026-08-04'
+  status: minimal
+  artifacts_added: 4
+  pass: local-v1
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: >-
+    NoBroker ships only end-user web and mobile products — there is no developer
+    portal, api./developer./docs.nobroker.in do not resolve at all, and the
+    application endpoints the site itself calls under /api/v1 through /api/v5 are
+    explicitly Disallow-ed in robots.txt; every /.well-known/* path on
+    www.nobroker.in answers 200 with the Angular app shell rather than a document.
+  evidence:
+  - url: https://developer.nobroker.in/
+    status: 0
+  - url: https://www.nobroker.in/openapi.json
+    status: 404
+  - url: https://www.nobroker.in/robots.txt
+    status: 200
+  - url: https://www.nobroker.in/.well-known/agent-card.json
+    status: 200
+  - url: https://www.nobrokerhood.com/.well-known/agent-card.json
+    status: 404
+  checked: '2026-08-04'

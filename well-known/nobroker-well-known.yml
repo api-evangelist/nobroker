@@ -1,0 +1,55 @@
+generated: '2026-08-04'
+method: probed
+source: live GET of /.well-known/* on every NoBroker host reachable from apis.yml
+summary: >-
+  No real /.well-known document was found on any NoBroker host. www.nobroker.in and
+  backend.nobroker.in answer HTTP 200 to EVERY /.well-known/* path with the ~330KB
+  Angular application shell (content-type text/html;charset=iso-8859-1), which is a
+  single-page-app catch-all, not a discovery document. Those 200s are therefore
+  rejected as false positives and NO WellKnown / SecurityTxt / AgentCard pointer is
+  wired in apis.yml. www.nobrokerhood.com and partner.nobroker.in return honest 404s.
+hosts:
+- host: https://www.nobroker.in
+  behavior: spa-catch-all
+  note: every path returns the application shell with HTTP 200; no document exists
+  documents:
+  - {path: /.well-known/security.txt, status: 200, content_type: text/html, accepted: false, reason: html-spa-shell}
+  - {path: /.well-known/openid-configuration, status: 200, content_type: text/html, accepted: false, reason: html-spa-shell}
+  - {path: /.well-known/oauth-authorization-server, status: 200, content_type: text/html, accepted: false, reason: html-spa-shell}
+  - {path: /.well-known/oauth-protected-resource, status: 200, content_type: text/html, accepted: false, reason: html-spa-shell}
+  - {path: /.well-known/api-catalog, status: 200, content_type: text/html, accepted: false, reason: html-spa-shell}
+  - {path: /.well-known/ai-plugin.json, status: 200, content_type: text/html, accepted: false, reason: html-spa-shell}
+  - {path: /.well-known/agent-card.json, status: 200, content_type: text/html, accepted: false, reason: html-spa-shell}
+  - {path: /.well-known/agent.json, status: 200, content_type: text/html, accepted: false, reason: html-spa-shell}
+  - {path: /.well-known/mcp.json, status: 200, content_type: text/html, accepted: false, reason: html-spa-shell}
+- host: https://backend.nobroker.in
+  behavior: spa-catch-all
+  note: same Angular shell as www; identical false-positive 200s
+  documents:
+  - {path: /.well-known/security.txt, status: 200, content_type: text/html, accepted: false, reason: html-spa-shell}
+  - {path: /.well-known/openid-configuration, status: 200, content_type: text/html, accepted: false, reason: html-spa-shell}
+  - {path: /.well-known/agent-card.json, status: 200, content_type: text/html, accepted: false, reason: html-spa-shell}
+  - {path: /.well-known/agent.json, status: 200, content_type: text/html, accepted: false, reason: html-spa-shell}
+- host: https://www.nobrokerhood.com
+  behavior: honest-404
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/agent.json, status: 404}
+- host: https://partner.nobroker.in
+  behavior: honest-404
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/agent.json, status: 404}
+x-evidence:
+  fetched: '2026-08-04'
+  hosts_probed: 4
+  paths_probed: 9
+  documents_accepted: 0

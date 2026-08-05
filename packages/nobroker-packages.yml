@@ -1,0 +1,49 @@
+generated: '2026-08-04'
+method: searched
+source: npm registry search, PyPI, and the NoBroker public web surface
+summary: >-
+  NoBroker publishes no API client library in any public package registry. The only
+  first-party packages found on npm are internal front-end utilities published from
+  NoBroker's private Bitbucket organisation (bitbucket.org/nobroker-repos) — an
+  Android app-permission helper and a mobile-web "stories" UI component. Neither is
+  an SDK for a NoBroker API, so NO `SDKs` pointer is wired: the sdk_count checks must
+  not fire on internal UI packages.
+packages:
+- language: javascript
+  registry: npm
+  name: '@nobroker/nb-apk-permission'
+  url: https://www.npmjs.com/package/@nobroker/nb-apk-permission
+  install: npm install @nobroker/nb-apk-permission
+  version: 0.0.5
+  published: '2024-03-14'
+  publisher: nb_frontend
+  repository: https://bitbucket.org/nobroker-repos/nb-one-click-pkg
+  description: NoBroker Reusable Packages for app permissions
+  official: true
+  api_client: false
+- language: javascript
+  registry: npm
+  name: nbstories-mweb-1
+  url: https://www.npmjs.com/package/nbstories-mweb-1
+  install: npm install nbstories-mweb-1
+  version: 1.0.0
+  published: '2022-05-30'
+  publisher: syed2910
+  repository: https://bitbucket.org/nobroker-repos/nbstories-ui-package
+  description: >-
+    Displays WhatsApp/Instagram-like stories in the NoBroker mobile web app and the
+    TRM App
+  official: true
+  api_client: false
+registries_checked:
+- {registry: npm, query: nobroker, first_party_hits: 2, api_clients: 0}
+- {registry: npm, query: 'scope:nobroker', result: 'scope not publicly enumerable (search total 0)'}
+- {registry: pypi, packages: [nobroker, nobroker-api, nobrokerhood], status: 404}
+- {registry: pkg.go.dev, result: none}
+- {registry: rubygems, result: none}
+- {registry: packagist, result: none}
+notes:
+- NoBroker's source control is a private Bitbucket workspace (nobroker-repos); the
+  github.com/nobroker organisation exists but has 0 public repositories.
+- Every "NoBroker API" package or MCP server on Apify, Bright Data and RapidAPI is a
+  third-party scraper of nobroker.in, not a NoBroker product, and is not catalogued here.
