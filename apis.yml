@@ -13,6 +13,17 @@ description: 'NoBroker Technologies Solutions Pvt Ltd is an Indian proptech comp
   program, no API reference and no machine-readable specification, and its application
   endpoints under /api/v1..v5 are explicitly disallowed in robots.txt.'
 url: https://raw.githubusercontent.com/api-evangelist/nobroker/refs/heads/main/apis.yml
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://assets.nobroker.in/static/img/logo.png
 x-type: company
 x-source: harvest:secondary-market
